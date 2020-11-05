@@ -1,7 +1,7 @@
 name: payso
 description: Payso is a digital wallet platform and online payment comapany headquartered in Philippines.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -14,13 +14,13 @@ dependencies:
   cupertino_icons: ^1.0.0
   get: ^3.13.2
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
+
   assets:
-    - assets/icons
-    - assets/images
+    - assets/images/
+    - assets/icons/
