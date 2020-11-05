@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PaySo App',
       home: SplashScreen(),
-
     );
   }
 }
