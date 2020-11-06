@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/Screens/Splash/splash_screen.dart';
+
+import 'screens/Splash/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
