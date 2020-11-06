@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
-import 'package:payso/components/pincode_widget.dart';
-import 'package:payso/screens/Otp/components/component_widget.dart.dart';
-import 'package:payso/screens/Otp/components/resend_otp_button.dart.dart';
+import 'package:payso/constants.dart';
 import 'package:payso/screens/Passcode/passcode_screen.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -29,10 +28,76 @@ class OtpScreen extends StatelessWidget {
                     width: Get.width * 0.7,
                   ),
                 ),
-                ContentWidget(),
-                ResendOtpButton(),
-                PincodeWidget(
-                  boxCount: 6,
+                Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Verify your number',
+                        textAlign: TextAlign.center,
+                        style: cHeadStyle,
+                      ),
+                      Text(
+                        //TODO: mobile number will be added in this widget
+                        'Enter a 6 digit number sent to \n +91 ',
+                        textAlign: TextAlign.center,
+                        style: cTextStyle,
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: FlatButton(
+                    onPressed: () {
+                      print("Resend OTP");
+                    },
+                    child: Text(
+                      'Re Send Code',
+                      style: TextStyle(
+                        color: cPrimaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: PinCodeTextField(
+                    validator: (value) {
+                      if (value.isEmpty || value.length != 6) {
+                        return 'Please Enter Valid OTP';
+                      }
+                      return null;
+                    },
+                    onSubmitted: (value) {
+                      //TODO: add action here
+                    },
+                    backgroundColor: cIntroSliderBg,
+                    appContext: context,
+                    length: 6,
+                    obscureText: false,
+                    pinTheme: PinTheme(
+                      selectedFillColor: Colors.grey[300],
+                      inactiveColor: Colors.grey[300],
+                      activeColor: Colors.grey[300],
+                      activeFillColor: Colors.grey[300],
+                      inactiveFillColor: Colors.grey[300],
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(5),
+                      fieldHeight: 50,
+                      fieldWidth: 40,
+                    ),
+                    autoDismissKeyboard: true,
+                    keyboardType: TextInputType.number,
+                    enableActiveFill: true,
+                    onCompleted: (value) {
+                      //TODO: get otp from here
+                    },
+                    onChanged: (value) {
+                      print("value" + value);
+                    },
+                  ),
                 ),
                 ButtonWidget(
                   buttonText: 'otpVerifyButton',

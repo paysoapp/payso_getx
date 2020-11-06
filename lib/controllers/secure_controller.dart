@@ -7,7 +7,6 @@ class SecureController extends GetxController {
   @override
   void onInit() async {
     allAvailableBiometrics = await getAvailableBiometrics();
-// TODO: implement onInit
     super.onInit();
   }
 

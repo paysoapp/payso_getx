@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/Screens/IntroSlider/intro_slider.dart';
 import 'package:payso/screens/Permissions/permission_screen.dart';
 
 class SplashScreen extends StatefulWidget {

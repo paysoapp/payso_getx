@@ -6,7 +6,7 @@ import 'package:local_auth/local_auth.dart';
 import 'package:payso/constants.dart';
 import 'package:payso/controllers/secure_controller.dart';
 
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/payso_getx/lib/screens/Secure/components/secure_screen_tile.dart';
+import 'package:payso/screens/Secure/components/secure_screen_tile.dart';
 
 class SecureScreen extends StatelessWidget {
   SecureController localAuth = Get.put(SecureController());
