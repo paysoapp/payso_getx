@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/Screens/IntroSlider/intro_slider.dart';
+import 'package:payso/screens/Permissions/permission_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,7 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-      Get.offAll(IntroSlider());
+//      Get.offAll(IntroSlider());
+      Get.offAll(PermissionScreen());
     });
   }
 

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/components/button_widget.dart';
+import 'package:payso/constants.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-
-import '../../constants.dart';
 
 class OtpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -61,7 +60,6 @@ class OtpScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: cHeadStyle,
                       ),
-
                       Text(
                         //TODO: mobile number will be added in this widget
                         'Enter a 6 digit number sent to \n +91 ',
