@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:payso/Screens/Otp/otp_screen.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/input_textfield_widget.dart';
-import 'package:payso/constants.dart';
 import 'package:get/get.dart';
+
+import 'components/content_widget.dart';
 
 // ignore: must_be_immutable
 class RegisterScreen extends StatelessWidget {
@@ -24,30 +25,10 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-                  height: Get.height / 3,
-                  width: Get.width,
+                  width: Get.width * 0.7,
                   child: Image.asset('./assets/images/register.png'),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15.0),
-                  height: Get.height / 6,
-                  width: Get.width,
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        "registerationTitle",
-                        style: cHeadStyle,
-                      ),
-                      Spacer(),
-                      Text(
-                        "Lorem Ipsum with falaaana and Dikaana. Mein hoon ek udta robot.. Dora e mon.",
-                        style: cTextStyle,
-                        textAlign: TextAlign.center,
-                      ),
-                      Spacer(),
-                    ],
-                  ),
-                ),
+                ContentWidget(),
                 InputTextFieldWidget(
                   phoneEmpty: phoneEmpty,
                   formKey: _formKey,

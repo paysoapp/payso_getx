@@ -31,11 +31,11 @@ class InputTextFieldWidget extends StatelessWidget {
           }
           return null;
         },
-        onFieldSubmitted: (Value) {
-          if (formKey.currentState.validate()) {
-            // registerUser.registerUser(phoneNumber, context, _auth);
-          }
-        },
+        // onFieldSubmitted: (Value) {
+        //   if (formKey.currentState.validate()) {
+        //     // registerUser.registerUser(phoneNumber, context, _auth);
+        //   }
+        // },
         maxLength: 10,
         style: cFormFieldStyle,
         keyboardType: TextInputType.number,
