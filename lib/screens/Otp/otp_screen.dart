@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payso/Screens/CompleteProfile/complete_profile.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/constants.dart';
@@ -103,7 +104,9 @@ class OtpScreen extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'otpVerifyButton',
                   onTapped: () {
+
                     Get.offAll(MobileVerifiedScreen());
+
                   },
                 ),
               ],

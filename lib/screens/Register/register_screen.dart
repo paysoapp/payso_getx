@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payso/Screens/Otp/otp_screen.dart';
 import 'package:payso/components/button_widget.dart';
-import 'package:payso/components/input_textfield_widget.dart';
+import 'package:payso/components/input_number_widget.dart';
 import 'package:get/get.dart';
 
 import 'components/content_widget.dart';
@@ -29,7 +29,7 @@ class RegisterScreen extends StatelessWidget {
                   child: Image.asset('./assets/images/register.png'),
                 ),
                 ContentWidget(),
-                InputTextFieldWidget(
+                InputNumberWidget(
                   phoneEmpty: phoneEmpty,
                   formKey: _formKey,
                   controller: phoneController,
