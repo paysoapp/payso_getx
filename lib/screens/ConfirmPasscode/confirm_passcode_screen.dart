@@ -4,6 +4,7 @@ import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/passcode_content_widget.dart';
 import 'package:payso/components/pincode_widget.dart';
 import '../../components/passcode_digit_widget.dart';
+import 'package:payso/screens/PasscodeVerified/passcode_verified_screen.dart';
 
 class ConfirmPasscodeScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -35,6 +36,9 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                 ),
                 ButtonWidget(
                   buttonText: 'setPasscodeButton',
+                  onTapped: () {
+                    Get.off(PasscodeVerifiedScreen());
+                  },
                 ),
               ],
             ),

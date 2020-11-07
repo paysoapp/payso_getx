@@ -9,12 +9,14 @@ import 'package:payso/controllers/secure_controller.dart';
 import 'package:payso/screens/Secure/components/secure_screen_tile.dart';
 
 class SecureScreen extends StatelessWidget {
+  final List<BiometricType> availableBiometrics;
+
+  SecureScreen({this.availableBiometrics});
+
   SecureController localAuth = Get.put(SecureController());
 
   @override
   Widget build(BuildContext context) {
-    List<BiometricType> availableBiometrics =
-        localAuth.availableBiometrics.value;
     bool isAuthenticated = localAuth.isAuthenticated.value;
 
     List<SecureScreenTile> iOSList = [
