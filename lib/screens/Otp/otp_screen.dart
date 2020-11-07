@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/constants.dart';
+import 'package:payso/screens/MobileVerified/mobile_verified_screen.dart';
 import 'package:payso/screens/Passcode/passcode_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -102,7 +103,7 @@ class OtpScreen extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'otpVerifyButton',
                   onTapped: () {
-                    Get.offAll(PasscodeScreen());
+                    Get.offAll(MobileVerifiedScreen());
                   },
                 ),
               ],

@@ -50,7 +50,7 @@ class PermissionGetxController extends GetxController {
       }
     });
   }
-//
+
 //  checkPermission(Permission permission) async {
 //    if (await permission.request().isGranted) {
 //      return true;
