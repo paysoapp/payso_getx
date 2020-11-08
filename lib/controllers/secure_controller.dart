@@ -5,18 +5,6 @@ import 'package:payso/screens/Dashboard/dashboard_screen.dart';
 
 class SecureController extends GetxController {
   @override
-  void onInit() async {
-    allAvailableBiometrics = await getAvailableBiometrics();
-    super.onInit();
-  }
-
-  @override
-  void onReady() async {
-    availableBiometrics = allAvailableBiometrics.obs;
-    super.onReady();
-  }
-
-  var allAvailableBiometrics, availableBiometrics;
   var isAuthenticated = false.obs;
 
   navigateToNext() {
