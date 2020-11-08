@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/Screens/ConfirmPasscode/confirm_asscode_screen.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/passcode_content_widget.dart';
 import 'package:payso/components/pincode_widget.dart';
+import 'package:payso/screens/ConfirmPasscode/confirm_passcode_screen.dart';
 import '../../components/passcode_digit_widget.dart';
 
 class PasscodeScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class PasscodeScreen extends StatelessWidget {
                 ),
                 ButtonWidget(
                   buttonText: 'setPasscodeButton',
-                  onTapped: (){
+                  onTapped: () {
                     Get.offAll(ConfirmPasscodeScreen());
                   },
                 ),
