@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/passcode_content_widget.dart';
 import 'package:payso/components/pincode_widget.dart';
+import 'package:payso/controllers/passcode_controller.dart';
 import '../../components/passcode_digit_widget.dart';
 import 'package:payso/screens/PasscodeVerified/passcode_verified_screen.dart';
 
 class ConfirmPasscodeScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
+  PasscodeController passcodeController = Get.put(PasscodeController());
+  int confirmPasscode = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,13 +33,41 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                     PasscodeDigitWidget(),
                     PincodeWidget(
                       boxCount: 4,
+                      validator: (val) {
+                        confirmPasscode = int.parse(val);
+                        if (val.isEmpty || val.length != 4) {
+                          return 'Please Enter Valid passcode';
+                        } else if (!passcodeController.matchPasscode(
+                            passcodeController.firstScreenPasscode.value,
+                            confirmPasscode)) {
+                          return 'Passcode should same as Previous Screen';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) {
+                        confirmPasscode = int.parse(value);
+                        passcodeController.setConfirmPasscode(int.parse(value));
+                      },
+                      onSubmitted: (val) {
+                        confirmPasscode = int.parse(val);
+                        if (_formKey.currentState.validate()) {
+                          passcodeController.setConfirmPasscode(int.parse(val));
+                          Get.off(PasscodeVerifiedScreen());
+                        }
+                      },
                     ),
                   ],
                 ),
                 ButtonWidget(
                   buttonText: 'setPasscodeButton',
                   onTapped: () {
-                    Get.off(PasscodeVerifiedScreen());
+                    if (_formKey.currentState.validate()) {
+                      if (passcodeController.matchPasscode(
+                          passcodeController.firstScreenPasscode.value,
+                          passcodeController.secondScreenPasscode.value)) {
+                        Get.off(PasscodeVerifiedScreen());
+                      }
+                    }
                   },
                 ),
               ],

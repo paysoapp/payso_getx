@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:payso/Screens/Otp/otp_screen.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/input_number_widget.dart';
 import 'package:get/get.dart';
@@ -9,13 +9,14 @@ import 'components/content_widget.dart';
 // ignore: must_be_immutable
 class RegisterScreen extends GetWidget<AuthController> {
   final _phoneController = TextEditingController();
-  // TextEditingController phoneController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
-  // RegisterUser registerUser = RegisterUser();
-  // FirebaseAuth _auth = FirebaseAuth.instance;
   String phoneEmpty = ('phoneEmpty');
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  AuthController _authController = Get.put(AuthController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,8 +58,7 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ButtonWidget(
                   buttonText: 'otpButton',
                   onTapped: () {
-                    controller.login(_phoneController.text);
-                    Get.to(OtpScreen());
+                    _authController.registerUser(phoneController.text, context);
                   },
                 ),
               ],

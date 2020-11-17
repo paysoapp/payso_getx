@@ -1,42 +1,53 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
+import 'package:payso/screens/MobileVerified/mobile_verified_screen.dart';
+import 'package:payso/screens/Otp/otp_screen.dart';
 
 class AuthController extends GetxController {
+  UserCredential user;
   FirebaseAuth _auth = FirebaseAuth.instance;
-  Rx<User> _firebaseUser = Rx<User>();
-
-  String get user => _firebaseUser.value?.phoneNumber;
-
-  @override
-  void onInit() {
-    _firebaseUser.bindStream(_auth.authStateChanges());
+  Future registerUser(String mobile, BuildContext context) async {
+    String phoneNumber = '+91' + mobile;
+    _auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      timeout: Duration(seconds: 0),
+      verificationCompleted: (phoneAuthCredential) {},
+      verificationFailed: (FirebaseAuthException authException) {
+        print(authException.message);
+      },
+      codeSent: (String verificationId, [int forceResendingToken]) async {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => OtpScreen(
+            mobileNumber: phoneNumber,
+            verificationId: verificationId,
+          ),
+        );
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        verificationId = verificationId;
+        print(verificationId);
+        print("Timeout");
+      },
+    );
   }
 
-  // void createUser(String email, String password) async {
-  //   try {
-  //     await _auth.createUserWithEmailAndPassword(email: null, password: null);
-  //   } catch (e) {
-  //     Get.snackbar("Error creating account", e.message,
-  //         snackPosition: SnackPosition.BOTTOM);
-  //   }
-  // }
-
-  void login(String phoneNumber) async {
-    try {
-      await _auth.signInWithPhoneNumber(phoneNumber);
-    } catch (e) {
-      Get.snackbar("Error logging in", e.message,
-          snackPosition: SnackPosition.BOTTOM);
-    }
-  }
-
-  void signOut() async {
-    try {
-      await _auth.signOut();
-    } catch (e) {
-      Get.snackbar("Error Signing Out", e.message,
-          snackPosition: SnackPosition.BOTTOM);
-    }
+  verifyOtp(String verificationId, String otp) {
+    var _credential = PhoneAuthProvider.credential(
+        verificationId: verificationId, smsCode: otp.toString());
+    _auth
+        .signInWithCredential(_credential)
+        .then((UserCredential result) => {
+              Get.off(MobileVerifiedScreen()),
+            })
+        .catchError(
+      (e) {
+        print(e);
+        Get.snackbar('Incorrect OTP', "You've entered wrong OTP");
+      },
+    );
   }
 }
