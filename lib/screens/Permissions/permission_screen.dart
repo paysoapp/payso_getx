@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/constants.dart';
 import 'package:payso/controllers/permission_controller.dart';
+import 'package:payso/controllers/routes_controller.dart';
 
 class PermissionScreen extends StatelessWidget {
   final PermissionGetxController permissionController =
       Get.put(PermissionGetxController());
+  RoutesController routesController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +42,7 @@ class PermissionScreen extends StatelessWidget {
                   InkWell(
                     onTap: () async {
                       //TODO: Set SHared Preference
+                      routesController.hasSeen('Permission');
                       permissionController.askForPermissions();
                       permissionController.isAllPermissionAllowed();
                     },

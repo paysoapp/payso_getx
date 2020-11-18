@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:payso/Screens/Otp/otp_screen.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/input_number_widget.dart';
 import 'package:get/get.dart';
+import 'package:payso/controllers/auth_controller.dart';
 
 import 'components/content_widget.dart';
 
@@ -11,15 +11,15 @@ class RegisterScreen extends StatelessWidget {
   TextEditingController phoneController = TextEditingController();
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
-  // RegisterUser registerUser = RegisterUser();
-  // FirebaseAuth _auth = FirebaseAuth.instance;
   String phoneEmpty = ('phoneEmpty');
+  AuthController _authController = Get.put(AuthController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Form(
-          // key: _formkey,
+          key: _formKey,
           child: Container(
             margin: EdgeInsets.symmetric(vertical: Get.height * 0.1),
             child: Column(
@@ -31,8 +31,19 @@ class RegisterScreen extends StatelessWidget {
                 ContentWidget(),
                 InputNumberWidget(
                   phoneEmpty: phoneEmpty,
-                  formKey: _formKey,
                   controller: phoneController,
+                  onFieldSubmitted: (value) {
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
+                  },
+                  validator: (value) {
+                    if (value.isEmpty || value.length != 10) {
+                      return 'Phone Number must be valid';
+                    }
+                    return null;
+                  },
                   hintText: 'phoneHint',
                   prefix: Container(
                     width: Get.width / 3.8,
@@ -55,7 +66,10 @@ class RegisterScreen extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'otpButton',
                   onTapped: () {
-                    Get.to(OtpScreen());
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
                   },
                 ),
               ],

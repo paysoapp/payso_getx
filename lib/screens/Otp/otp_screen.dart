@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/Screens/CompleteProfile/complete_profile.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/constants.dart';
-import 'package:payso/screens/MobileVerified/mobile_verified_screen.dart';
-import 'package:payso/screens/Passcode/passcode_screen.dart';
+import 'package:payso/controllers/auth_controller.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
+  final String mobileNumber;
+  final verificationId;
+  String otp;
+  OtpScreen({this.mobileNumber, this.verificationId});
+  AuthController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +41,7 @@ class OtpScreen extends StatelessWidget {
                         style: cHeadStyle,
                       ),
                       Text(
-                        //TODO: mobile number will be added in this widget
-                        'Enter a 6 digit number sent to \n +91 ',
+                        'Enter a 6 digit number sent to \n $mobileNumber',
                         textAlign: TextAlign.center,
                         style: cTextStyle,
                       )
@@ -66,6 +67,9 @@ class OtpScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: PinCodeTextField(
+                    onChanged: (value) {
+                      otp = value;
+                    },
                     validator: (value) {
                       if (value.isEmpty || value.length != 6) {
                         return 'Please Enter Valid OTP';
@@ -73,7 +77,9 @@ class OtpScreen extends StatelessWidget {
                       return null;
                     },
                     onSubmitted: (value) {
-                      //TODO: add action here
+                      if (_formKey.currentState.validate()) {
+                        controller.verifyOtp(verificationId, otp);
+                      }
                     },
                     backgroundColor: cIntroSliderBg,
                     appContext: context,
@@ -94,19 +100,18 @@ class OtpScreen extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     enableActiveFill: true,
                     onCompleted: (value) {
-                      //TODO: get otp from here
-                    },
-                    onChanged: (value) {
-                      print("value" + value);
+                      if (_formKey.currentState.validate()) {
+                        controller.verifyOtp(verificationId, otp);
+                      }
                     },
                   ),
                 ),
                 ButtonWidget(
                   buttonText: 'otpVerifyButton',
                   onTapped: () {
-
-                    Get.offAll(MobileVerifiedScreen());
-
+                    if (_formKey.currentState.validate()) {
+                      controller.verifyOtp(verificationId, otp);
+                    }
                   },
                 ),
               ],
