@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512899319339",
+    "firebase_url": "https://payso-getx.firebaseio.com",
+    "project_id": "payso-getx",
+    "storage_bucket": "payso-getx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512899319339:android:0e16e38a1d2ba4a4858c6e",
+        "android_client_info": {
+          "package_name": "com.world.professionals.payso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512899319339-06ktpf0bscp49u0c3dvfrgrr13vbp333.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5v27IN-jUH6dU38kv0d8ive05GCu1neU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512899319339-06ktpf0bscp49u0c3dvfrgrr13vbp333.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
