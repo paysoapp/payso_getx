@@ -3,7 +3,6 @@ import 'package:payso/components/input_textfield_widget.dart';
 
 import '../../../constants.dart';
 
-
 class TextFields extends StatelessWidget {
   const TextFields({
     Key key,

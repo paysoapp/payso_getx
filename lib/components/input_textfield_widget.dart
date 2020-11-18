@@ -6,16 +6,24 @@ import '../constants.dart';
 class InputTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final String phoneEmpty;
+  final Icon textFieldIcon;
+  final String textFieldTitle;
   final String hintText;
+  final TextInputType textFieldType;
+  final int textFieldSize;
   final Widget prefix;
   final Function onFieldSubmitted;
   final Function validator;
 
   InputTextFieldWidget({
     this.controller,
+    this.textFieldIcon,
+    this.textFieldTitle,
     this.phoneEmpty,
+    this.textFieldType,
     this.hintText,
     this.prefix,
+    this.textFieldSize,
     this.validator,
     this.onFieldSubmitted,
   });
