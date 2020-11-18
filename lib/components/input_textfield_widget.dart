@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,15 +6,19 @@ import '../constants.dart';
 class InputTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final String phoneEmpty;
-  final GlobalKey<FormState> formKey;
   final String hintText;
   final Widget prefix;
-  InputTextFieldWidget(
-      {this.formKey,
-      this.controller,
-      this.phoneEmpty,
-      this.hintText,
-      this.prefix});
+  final Function onFieldSubmitted;
+  final Function validator;
+
+  InputTextFieldWidget({
+    this.controller,
+    this.phoneEmpty,
+    this.hintText,
+    this.prefix,
+    this.validator,
+    this.onFieldSubmitted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +27,8 @@ class InputTextFieldWidget extends StatelessWidget {
       width: Get.width / 1.1,
       child: TextFormField(
         controller: controller,
-        onChanged: (value) {},
-        validator: (value) {
-          if (value.isEmpty || value.length != 10) {
-            return phoneEmpty;
-          }
-          return null;
-        },
-        // onFieldSubmitted: (Value) {
-        //   if (formKey.currentState.validate()) {
-        //     // registerUser.registerUser(phoneNumber, context, _auth);
-        //   }
-        // },
+        validator: validator,
+        onFieldSubmitted: onFieldSubmitted,
         maxLength: 10,
         style: cFormFieldStyle,
         keyboardType: TextInputType.number,

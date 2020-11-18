@@ -6,4 +6,14 @@ class RoutesController extends GetxController {
     var box = GetStorage();
     box.writeIfNull('passcode', passcode);
   }
+
+  hasSeen(String page) {
+    var box = GetStorage();
+    box.writeIfNull(page, true);
+  }
+
+  checkSeen(String page) {
+    var box = GetStorage();
+    return box.read(page) ?? false;
+  }
 }

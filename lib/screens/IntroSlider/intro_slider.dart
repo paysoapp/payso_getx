@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/Screens/Register/register_screen.dart';
 import 'package:payso/constants.dart';
+import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/models/intro_slider_model.dart';
 import 'package:payso/screens/IntroSlider/components/slide_tile.dart';
 
@@ -14,6 +15,7 @@ class _IntroSliderState extends State<IntroSlider> {
   List<SliderModel> mySLides = new List<SliderModel>();
   int slideIndex = 0;
   PageController controller;
+  RoutesController routesController = Get.find();
 
   Widget _buildPageIndicator(bool isCurrentPage) {
     return Container(
@@ -32,9 +34,8 @@ class _IntroSliderState extends State<IntroSlider> {
     super.initState();
     mySLides = getSlides();
     controller = new PageController();
+    routesController.hasSeen('Intro');
   }
-
-// Set Shared Preference
 
   @override
   Widget build(BuildContext context) {

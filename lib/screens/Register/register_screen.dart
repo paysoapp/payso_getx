@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/input_textfield_widget.dart';
@@ -13,7 +12,6 @@ class RegisterScreen extends StatelessWidget {
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
   String phoneEmpty = ('phoneEmpty');
-  FirebaseAuth _auth = FirebaseAuth.instance;
   AuthController _authController = Get.put(AuthController());
 
   @override
@@ -21,7 +19,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Form(
-          // key: _formkey,
+          key: _formKey,
           child: Container(
             margin: EdgeInsets.symmetric(vertical: Get.height * 0.1),
             child: Column(
@@ -33,8 +31,19 @@ class RegisterScreen extends StatelessWidget {
                 ContentWidget(),
                 InputTextFieldWidget(
                   phoneEmpty: phoneEmpty,
-                  formKey: _formKey,
                   controller: phoneController,
+                  onFieldSubmitted: (value) {
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
+                  },
+                  validator: (value) {
+                    if (value.isEmpty || value.length != 10) {
+                      return 'Phone Number must be valid';
+                    }
+                    return null;
+                  },
                   hintText: 'phoneHint',
                   prefix: Container(
                     width: Get.width / 3.8,
@@ -57,7 +66,10 @@ class RegisterScreen extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'otpButton',
                   onTapped: () {
-                    _authController.registerUser(phoneController.text, context);
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
                   },
                 ),
               ],
