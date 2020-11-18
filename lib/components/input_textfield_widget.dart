@@ -2,42 +2,55 @@ import 'package:flutter/material.dart';
 import 'package:payso/constants.dart';
 
 class InputTextFieldWidget extends StatelessWidget {
-  final String textFieldTitle;
-  final Icon textFieldIcon;
-  final int textFieldSize;
-  final TextInputType textFieldType;
-  final Function onChanged;
-  final Function validator;
-  final Function onFieldSubmitted;
 
-  InputTextFieldWidget(
-      {this.textFieldIcon,
-      this.textFieldTitle,
-      this.textFieldType,
-      this.textFieldSize,
-      this.onChanged,
-      this.validator,
-      this.onFieldSubmitted});
+  final TextEditingController controller;
+  final String phoneEmpty;
+  final Icon textFieldIcon;
+  final String textFieldTitle;
+  final String hintText;
+  final TextInputType textFieldType;
+  final int textFieldSize;
+  final Widget prefix;
+  final Function onFieldSubmitted;
+  final Function validator;
+
+  InputTextFieldWidget({
+    this.controller,
+    this.textFieldIcon,
+    this.textFieldTitle,
+    this.phoneEmpty,
+    this.textFieldType,
+    this.hintText,
+    this.prefix,
+    this.textFieldSize,
+    this.validator,
+    this.onFieldSubmitted,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      validator: validator,
-      onFieldSubmitted: onFieldSubmitted,
-      style: cFormFieldStyle,
-      maxLength: textFieldSize,
-      keyboardType: textFieldType,
-      decoration: InputDecoration(
-        hintText: textFieldTitle,
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.grey,
-            width: 1.3,
-            style: BorderStyle.solid,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(40.0),
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      width: Get.width / 1.1,
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
+        onFieldSubmitted: onFieldSubmitted,
+        maxLength: 10,
+        style: cFormFieldStyle,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          hintText: hintText,
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+              width: 1.3,
+              style: BorderStyle.solid,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(40.0),
+            ),
+
           ),
         ),
         prefixIcon: textFieldIcon,

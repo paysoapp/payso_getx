@@ -1,8 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/input_number_widget.dart';
+
 import 'package:get/get.dart';
+import 'package:payso/components/input_textfield_widget.dart';
 import 'package:payso/controllers/auth_controller.dart';
 import 'components/content_widget.dart';
 
@@ -14,7 +15,6 @@ class RegisterScreen extends GetWidget<AuthController> {
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
   String phoneEmpty = ('phoneEmpty');
-  FirebaseAuth _auth = FirebaseAuth.instance;
   AuthController _authController = Get.put(AuthController());
 
   @override
@@ -22,7 +22,7 @@ class RegisterScreen extends GetWidget<AuthController> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Form(
-          // key: _formkey,
+          key: _formKey,
           child: Container(
             margin: EdgeInsets.symmetric(vertical: Get.height * 0.1),
             child: Column(
@@ -32,10 +32,21 @@ class RegisterScreen extends GetWidget<AuthController> {
                   child: Image.asset('./assets/images/register.png'),
                 ),
                 ContentWidget(),
-                InputNumberWidget(
-                  phoneEmpty: phoneEmpty,
-                  formKey: _formKey,
-                  controller: _phoneController,
+
+                InputTextFieldWidget(
+                  controller: phoneController,
+                  onFieldSubmitted: (value) {
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
+                  },
+                  validator: (value) {
+                    if (value.isEmpty || value.length != 10) {
+                      return 'Phone Number must be valid';
+                    }
+                    return null;
+                  },
                   hintText: 'phoneHint',
                   prefix: Container(
                     width: Get.width / 3.8,
@@ -58,7 +69,10 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ButtonWidget(
                   buttonText: 'otpButton',
                   onTapped: () {
-                    _authController.registerUser(phoneController.text, context);
+                    if (_formKey.currentState.validate()) {
+                      _authController.registerUser(
+                          phoneController.text, context);
+                    }
                   },
                 ),
               ],

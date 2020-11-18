@@ -8,11 +8,12 @@ import 'package:payso/screens/Otp/otp_screen.dart';
 class AuthController extends GetxController {
   UserCredential user;
   FirebaseAuth _auth = FirebaseAuth.instance;
+
   Future registerUser(String mobile, BuildContext context) async {
     String phoneNumber = '+91' + mobile;
     _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
-      timeout: Duration(seconds: 0),
+      timeout: Duration(seconds: 20),
       verificationCompleted: (phoneAuthCredential) {},
       verificationFailed: (FirebaseAuthException authException) {
         print(authException.message);
@@ -46,7 +47,7 @@ class AuthController extends GetxController {
         .catchError(
       (e) {
         print(e);
-        Get.snackbar('Incorrect OTP', "You've entered wrong OTP");
+        Get.snackbar('Wrong OTP', 'OTP is wrong');
       },
     );
   }

@@ -11,7 +11,7 @@ class OtpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final String mobileNumber;
   final verificationId;
-  TextEditingController otpController;
+  String otp;
   OtpScreen({this.mobileNumber, this.verificationId});
   AuthController controller = Get.find();
   @override
@@ -68,6 +68,9 @@ class OtpScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: PinCodeTextField(
+                    onChanged: (value) {
+                      otp = value;
+                    },
                     validator: (value) {
                       if (value.isEmpty || value.length != 6) {
                         return 'Please Enter Valid OTP';
@@ -76,8 +79,7 @@ class OtpScreen extends StatelessWidget {
                     },
                     onSubmitted: (value) {
                       if (_formKey.currentState.validate()) {
-                        controller.verifyOtp(
-                            verificationId, otpController.text);
+                        controller.verifyOtp(verificationId, otp);
                       }
                     },
                     backgroundColor: cIntroSliderBg,
@@ -100,8 +102,7 @@ class OtpScreen extends StatelessWidget {
                     enableActiveFill: true,
                     onCompleted: (value) {
                       if (_formKey.currentState.validate()) {
-                        controller.verifyOtp(
-                            verificationId, otpController.text);
+                        controller.verifyOtp(verificationId, otp);
                       }
                     },
                   ),
@@ -110,7 +111,7 @@ class OtpScreen extends StatelessWidget {
                   buttonText: 'otpVerifyButton',
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
-                      controller.verifyOtp(verificationId, otpController.text);
+                      controller.verifyOtp(verificationId, otp);
                     }
                   },
                 ),
