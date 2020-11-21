@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payso/Screens/ConfirmPasscode/confirm_passcode_screen.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/passcode_content_widget.dart';
 import 'package:payso/components/pincode_widget.dart';
 import 'package:payso/controllers/passcode_controller.dart';
-import 'package:payso/screens/ConfirmPasscode/confirm_passcode_screen.dart';
 import '../../components/passcode_digit_widget.dart';
 
 class PasscodeScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   PasscodeController passcodeController = Get.put(PasscodeController());
+  int passcode;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,13 @@ class PasscodeScreen extends StatelessWidget {
                         }
                         return null;
                       },
+                      onChanged: (value) {
+                        passcode = int.parse(value);
+                        passcodeController.setPasscode(int.parse(value));
+                      },
                       onSubmitted: (val) {
                         if (_formKey.currentState.validate()) {
+                          passcode = int.parse(val);
                           passcodeController.setPasscode(int.parse(val));
                         }
                       },
@@ -50,7 +56,9 @@ class PasscodeScreen extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'setPasscodeButton',
                   onTapped: () {
-                    Get.offAll(ConfirmPasscodeScreen());
+                    if (_formKey.currentState.validate()) {
+                      Get.offAll(ConfirmPasscodeScreen());
+                    }
                   },
                 ),
               ],
