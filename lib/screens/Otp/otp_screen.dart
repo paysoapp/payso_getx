@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/constants.dart';
-import 'package:payso/controllers/auth_controller.dart';
+import 'package:payso/controllers/otp_controller.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final String mobileNumber;
-  final verificationId;
+  final String verificationId;
   String otp;
   OtpScreen({this.mobileNumber, this.verificationId});
-  AuthController controller = Get.find();
+  OtpController controller = Get.put(OtpController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +78,7 @@ class OtpScreen extends StatelessWidget {
                     },
                     onSubmitted: (value) {
                       if (_formKey.currentState.validate()) {
+                        print('$verificationId $otp');
                         controller.verifyOtp(verificationId, otp);
                       }
                     },
@@ -99,11 +100,6 @@ class OtpScreen extends StatelessWidget {
                     autoDismissKeyboard: true,
                     keyboardType: TextInputType.number,
                     enableActiveFill: true,
-                    onCompleted: (value) {
-                      if (_formKey.currentState.validate()) {
-                        controller.verifyOtp(verificationId, otp);
-                      }
-                    },
                   ),
                 ),
                 ButtonWidget(
