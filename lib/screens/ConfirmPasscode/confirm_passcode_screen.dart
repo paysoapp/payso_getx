@@ -37,18 +37,21 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                         confirmPasscode = int.parse(val);
                         if (val.isEmpty || val.length != 4) {
                           return 'Please Enter Valid passcode';
-                        } else if (passcodeController.matchPasscode(
+                        } else if (!passcodeController.matchPasscode(
                             passcodeController.firstScreenPasscode.value,
                             confirmPasscode)) {
                           return 'Passcode should same as Previous Screen';
                         }
                         return null;
                       },
+                      onChanged: (value) {
+                        confirmPasscode = int.parse(value);
+                        passcodeController.setConfirmPasscode(int.parse(value));
+                      },
                       onSubmitted: (val) {
                         confirmPasscode = int.parse(val);
                         if (_formKey.currentState.validate()) {
-                          passcodeController
-                              .setConfirmPasscode(confirmPasscode);
+                          passcodeController.setConfirmPasscode(int.parse(val));
                           Get.off(PasscodeVerifiedScreen());
                         }
                       },
@@ -59,8 +62,11 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                   buttonText: 'setPasscodeButton',
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
-                      passcodeController.setConfirmPasscode(confirmPasscode);
-                      Get.off(PasscodeVerifiedScreen());
+                      if (passcodeController.matchPasscode(
+                          passcodeController.firstScreenPasscode.value,
+                          passcodeController.secondScreenPasscode.value)) {
+                        Get.off(PasscodeVerifiedScreen());
+                      }
                     }
                   },
                 ),
