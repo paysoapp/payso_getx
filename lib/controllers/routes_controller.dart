@@ -16,4 +16,9 @@ class RoutesController extends GetxController {
     var box = GetStorage();
     return box.read(page) ?? false;
   }
+
+  logout() {
+    var box = GetStorage();
+    box.erase();
+  }
 }

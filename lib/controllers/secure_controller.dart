@@ -1,13 +1,16 @@
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/screens/Dashboard/dashboard_screen.dart';
 
 class SecureController extends GetxController {
   @override
   var isAuthenticated = false.obs;
+  RoutesController routeController = Get.find();
 
   navigateToNext() {
+    routeController.hasSeen('isAuthenticated');
     Get.offAll(DashboardScreen());
   }
 

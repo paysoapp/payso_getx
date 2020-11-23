@@ -23,15 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () async {
-      if (!routeController.checkSeen('Permission')) {
-        Get.offAll(PermissionScreen());
-      } else if (!routeController.checkSeen('Intro')) {
-        Get.offAll(IntroSlider());
-      } else if (!routeController.checkSeen('Register')) {
-        Get.offAll(RegisterScreen());
-      } else if (!routeController.checkSeen('MobileVerified')) {
-        Get.offAll(PasscodeScreen());
-      } else if (!routeController.checkSeen('PasscodeVerified')) {
+      if (routeController.checkSeen('isAuthenticated')) {
         SecureController secureController = Get.put(SecureController());
         List<BiometricType> availableBiometrics =
             await secureController.getAvailableBiometrics();
@@ -40,7 +32,24 @@ class _SplashScreenState extends State<SplashScreen> {
             availableBiometrics: availableBiometrics,
           ),
         );
-      } else {}
+      } else if (!routeController.checkSeen('Permission')) {
+        Get.offAll(PermissionScreen());
+      } else if (!routeController.checkSeen('Intro')) {
+        Get.offAll(IntroSlider());
+      } else if (!routeController.checkSeen('MobileVerification')) {
+        Get.offAll(RegisterScreen());
+      } else if (!routeController.checkSeen('PasscodeVerified')) {
+        Get.offAll(PasscodeScreen());
+      } else {
+        SecureController secureController = Get.put(SecureController());
+        List<BiometricType> availableBiometrics =
+            await secureController.getAvailableBiometrics();
+        Get.offAll(
+          SecureScreen(
+            availableBiometrics: availableBiometrics,
+          ),
+        );
+      }
     });
   }
 
