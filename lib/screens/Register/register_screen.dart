@@ -39,11 +39,11 @@ class RegisterScreen extends StatelessWidget {
                   },
                   validator: (value) {
                     if (value.isEmpty || value.length != 10) {
-                      return 'Phone Number must be valid';
+                      return 'phoneEmpty'.tr;
                     }
                     return null;
                   },
-                  hintText: 'phoneHint',
+                  hintText: 'phoneHint'.tr,
                   prefix: Container(
                     width: Get.width / 3.8,
                     child: Row(
@@ -63,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 ButtonWidget(
-                  buttonText: 'otpButton',
+                  buttonText: 'otpButton'.tr,
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
                       _authController.registerUser(

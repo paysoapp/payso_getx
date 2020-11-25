@@ -1,21 +1,19 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payso/constants.dart';
 import 'package:get/get.dart';
+import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/screens/Permissions/permission_screen.dart';
 import 'package:payso/services/localization_service.dart';
-
-
 
 class SelectLanguage extends StatefulWidget {
   @override
   _SelectLanguageState createState() => _SelectLanguageState();
-  static const String id = 'select_language';
 }
 
 class _SelectLanguageState extends State<SelectLanguage> {
   String _selectLang = LocalizationService.langs.first;
+  RoutesController _routesController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +28,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   Container(
                     child: Image.asset(
                       'assets/images/language.png',
-                      height: MediaQuery.of(context).size.height * 0.4,
+                      height: Get.height * 0.4,
                     ),
                   ),
                   Padding(
@@ -56,7 +54,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 1.1,
+                      width: Get.width / 1.1,
                       decoration: BoxDecoration(
                         color: cPrimaryColor,
                         borderRadius: BorderRadius.all(
@@ -78,43 +76,18 @@ class _SelectLanguageState extends State<SelectLanguage> {
                             color: Colors.white,
                           ),
                         ),
-                        items:LocalizationService.langs.map((String lang ){
-                          return DropdownMenuItem(value: lang,child: Text(lang),);
+                        items: LocalizationService.langs.map((String lang) {
+                          return DropdownMenuItem(
+                            value: lang,
+                            child: Text(lang),
+                          );
                         }).toList(),
-                        onChanged: (String value){
+                        onChanged: (String value) {
                           setState(() {
-                            _selectLang=value;
+                            _selectLang = value;
                             LocalizationService().changeLocale(value);
                           });
                         },
-                        // onChanged: (Language language) {
-                        //   setState(() {
-                        //     selectedLang = language.name;
-                        //   });
-
-                          // if (EasyLocalization.of(context)
-                          //         .locale
-                          //         .languageCode !=
-                          //     language.languageCode) {
-                          //   context.locale = Locale(
-                          //       language.languageCode, language.countryCode);
-                          // }
-                        // },
-                        // items: Language.languageList()
-                        //     .map<DropdownMenuItem<Language>>(
-                        //       (lang) => DropdownMenuItem(
-                        //         value: lang,
-                        //         child: Row(
-                        //           mainAxisAlignment:
-                        //               MainAxisAlignment.spaceAround,
-                        //           children: <Widget>[
-                        //             Text(lang.flag),
-                        //             Text(lang.name)
-                        //           ],
-                        //         ),
-                        //       ),
-                        //     )
-                        //     .toList(),
                       ),
                     ),
                   ),
@@ -122,20 +95,13 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: InkWell(
                       onTap: () async {
-                        // SharedPreferenceOperations _prefs =
-                        //     SharedPreferenceOperations();
+                        _routesController.hasSeen('Language');
                         // await _prefs.setLanguage(selectedLang);
-                        // await _prefs.hasSeen('Language');
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => PermissionScreen()),
-                        // );
                         Get.to(PermissionScreen());
                       },
                       child: Container(
                         height: 60,
-                        width: MediaQuery.of(context).size.width / 1.1,
+                        width: Get.width / 1.1,
                         decoration: BoxDecoration(
                           color: cPrimaryColor,
                           borderRadius: BorderRadius.all(
@@ -148,12 +114,12 @@ class _SelectLanguageState extends State<SelectLanguage> {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-
                           ),
                         ),
                       ),
-                  ),
-                  )],
+                    ),
+                  )
+                ],
               ),
             ],
           ),

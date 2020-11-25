@@ -10,7 +10,7 @@ class LocalizationService extends Translations {
 
   //fallbacksLocale saves the day when the locale gets in trouble
   static final fallbackLocale = Locale('en', 'US');
-  static final langs = ['English', 'Filpino'];
+  static final langs = ['English', 'Filipino'];
 
   //supported locale
   static final locales = [Locale('en', 'US'), Locale('fil', 'PH')];

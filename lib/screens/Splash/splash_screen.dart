@@ -6,6 +6,7 @@ import 'package:local_auth/local_auth.dart';
 import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/controllers/secure_controller.dart';
 import 'package:payso/screens/IntroSlider/intro_slider.dart';
+import 'package:payso/screens/LanguageSelection/select_language.dart';
 import 'package:payso/screens/Passcode/passcode_screen.dart';
 import 'package:payso/screens/Permissions/permission_screen.dart';
 import 'package:payso/screens/Register/register_screen.dart';
@@ -32,6 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
             availableBiometrics: availableBiometrics,
           ),
         );
+      } else if (!routeController.checkSeen('Language')) {
+        Get.offAll(SelectLanguage());
       } else if (!routeController.checkSeen('Permission')) {
         Get.offAll(PermissionScreen());
       } else if (!routeController.checkSeen('Intro')) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payso/components/input_textfield_widget.dart';
-
+import 'package:get/utils.dart';
 import '../../../constants.dart';
 
 class TextFields extends StatelessWidget {
@@ -18,10 +18,8 @@ class TextFields extends StatelessWidget {
               Icons.person,
               color: cPrimaryColor,
             ),
-            textFieldTitle: 'completeProfileName',
+            textFieldTitle: 'completeProfileName'.tr,
             textFieldType: TextInputType.name,
-            // onChanged: (value) {},
-            // onFieldSubmitted: (value) {},
           ),
           SizedBox(
             height: 30.0,
@@ -31,10 +29,8 @@ class TextFields extends StatelessWidget {
               Icons.email,
               color: cPrimaryColor,
             ),
-            textFieldTitle: 'completeProfileEmail',
+            textFieldTitle: 'completeProfileEmail'.tr,
             textFieldType: TextInputType.emailAddress,
-            // onChanged: (value) {},
-            // onFieldSubmitted: (value) {},
           ),
           SizedBox(
             height: 30.0,
@@ -44,10 +40,8 @@ class TextFields extends StatelessWidget {
               Icons.card_giftcard,
               color: cPrimaryColor,
             ),
-            textFieldTitle: 'completeProfileReferral',
+            textFieldTitle: 'completeProfileReferral'.tr,
             textFieldSize: 8,
-            // onChanged: (value) {},
-            // onFieldSubmitted: (value) {},
           ),
         ],
       ),

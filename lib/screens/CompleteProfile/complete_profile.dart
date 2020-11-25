@@ -24,7 +24,7 @@ class CompleteProfile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    'completeProfileTitle',
+                    'completeProfileTitle'.tr,
                     style: cHeadStyle,
                   ),
                 ),
@@ -40,7 +40,7 @@ class CompleteProfile extends StatelessWidget {
                   child: TextFields(),
                 ),
                 ButtonWidget(
-                  buttonText: 'completeProfileNext',
+                  buttonText: 'completeProfileNext'.tr,
                 ),
               ],
             ),

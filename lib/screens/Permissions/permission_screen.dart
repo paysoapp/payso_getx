@@ -26,7 +26,7 @@ class PermissionScreen extends StatelessWidget {
                 child: Image.asset('./assets/images/register.png'),
               ),
               Text(
-                'Give Permissions',
+                'permissionTitle'.tr,
                 style: cHeadStyle,
               ),
               Column(
@@ -41,7 +41,6 @@ class PermissionScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () async {
-                      //TODO: Set SHared Preference
                       routesController.hasSeen('Permission');
                       permissionController.askForPermissions();
                       permissionController.isAllPermissionAllowed();
@@ -57,7 +56,7 @@ class PermissionScreen extends StatelessWidget {
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "Allow",
+                        "permissionButton".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,

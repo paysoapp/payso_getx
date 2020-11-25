@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 
 class PasscodeDigitWidget extends StatelessWidget {
   const PasscodeDigitWidget({
@@ -10,7 +11,7 @@ class PasscodeDigitWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Text(
-        'Enter Digits Only',
+        'PasscodeDigitsOnly'.tr,
         style: TextStyle(
           color: Colors.grey,
           fontSize: 16,
