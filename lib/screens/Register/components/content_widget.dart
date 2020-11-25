@@ -4,10 +4,6 @@ import 'package:get/get.dart';
 import '../../../constants.dart';
 
 class ContentWidget extends StatelessWidget {
-  const ContentWidget({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,12 +13,12 @@ class ContentWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            "registerationTitle",
+            "registerationTitle".tr,
             style: cHeadStyle,
           ),
           Spacer(),
           Text(
-            "Lorem Ipsum with falaaana and Dikaana. Mein hoon ek udta robot.. Dora e mon.",
+            "registrationBody".tr,
             style: cTextStyle,
             textAlign: TextAlign.center,
           ),

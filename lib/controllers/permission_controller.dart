@@ -6,15 +6,15 @@ import 'package:permission_handler/permission_handler.dart';
 class PermissionGetxController extends GetxController {
   var permissionItems = [
     PermissionItem(
-      permissionText: 'Provide Contact Access to check who uses Payso ',
+      permissionText: 'permissionText1'.tr,
       permission: Permission.contacts,
     ),
     PermissionItem(
-      permissionText: 'Allow Camera Access to scan QR codes by Camera',
+      permissionText: 'permissionText2'.tr,
       permission: Permission.camera,
     ),
     PermissionItem(
-      permissionText: 'Provide Location Access get permissions',
+      permissionText: 'permissionText3'.tr,
       permission: Permission.location,
     ),
   ].obs;
@@ -41,7 +41,6 @@ class PermissionGetxController extends GetxController {
       Permission.camera,
       Permission.contacts,
     ];
-    await askForPermissions();
     _allPermissions.forEach((permission) async {
       if (await permission.isDenied || await permission.isRestricted) {
         await isAllPermissionAllowed();

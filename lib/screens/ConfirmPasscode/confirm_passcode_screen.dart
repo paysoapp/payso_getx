@@ -26,9 +26,8 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                   children: [
                     ImageWidget(),
                     PasscodeContentWidget(
-                      titleText: 'Confirm Mobile Passcode',
-                      contentText:
-                          'Re-Enter your digit passcode to secure your account',
+                      titleText: 'confirmPasscodeTitle'.tr,
+                      contentText: 'confirmPasscodeBody'.tr,
                     ),
                     PasscodeDigitWidget(),
                     PincodeWidget(
@@ -36,11 +35,11 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                       validator: (val) {
                         confirmPasscode = int.parse(val);
                         if (val.isEmpty || val.length != 4) {
-                          return 'Please Enter Valid passcode';
+                          return 'incorrectSetPasscode'.tr;
                         } else if (!passcodeController.matchPasscode(
                             passcodeController.firstScreenPasscode.value,
                             confirmPasscode)) {
-                          return 'Passcode should same as Previous Screen';
+                          return 'incorrectConfirmPasscode'.tr;
                         }
                         return null;
                       },
@@ -59,7 +58,7 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                   ],
                 ),
                 ButtonWidget(
-                  buttonText: 'setPasscodeButton',
+                  buttonText: 'setPasscodeButton'.tr,
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
                       if (passcodeController.matchPasscode(

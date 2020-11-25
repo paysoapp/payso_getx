@@ -25,7 +25,7 @@ class BackButtonWidget extends StatelessWidget {
                   color: cPrimaryColor,
                 ),
                 Text(
-                  'Back',
+                  'backButton'.tr,
                   style: TextStyle(
                     color: cPrimaryColor,
                     fontWeight: FontWeight.w700,

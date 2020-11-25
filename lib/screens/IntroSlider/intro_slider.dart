@@ -112,7 +112,7 @@ class _IntroSliderState extends State<IntroSlider> {
                   Radius.circular(14),
                 ),
               ),
-              width: MediaQuery.of(context).size.width - 80,
+              width: Get.width - 80,
               alignment: Alignment.center,
               child: Text(
                 mySLides[slideIndex].getButtonTitle(),
@@ -131,7 +131,7 @@ class _IntroSliderState extends State<IntroSlider> {
               Get.to(RegisterScreen());
             },
             child: Text(
-              "skipLogin",
+              "skipLogin".tr,
               style: TextStyle(
                 color: cPrimaryColor,
                 fontSize: 16.0,

@@ -1,3 +1,5 @@
+import 'package:get/utils.dart';
+
 class SliderModel {
   String imageAssetPath;
   String title;
@@ -46,9 +48,9 @@ List<SliderModel> getSlides() {
   //1
   sliderModel.setDesc(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra sollicitudin commodo. ");
-  sliderModel.setTitle("sliderTitle1");
+  sliderModel.setTitle("sliderTitle1".tr);
   sliderModel.setImageAssetPath("assets/images/slider1.png");
-  sliderModel.setButtonTitle('sliderButton1');
+  sliderModel.setButtonTitle('sliderButton1'.tr);
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
@@ -56,9 +58,9 @@ List<SliderModel> getSlides() {
   //2
   sliderModel.setDesc(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra sollicitudin commodo. ");
-  sliderModel.setTitle("sliderTitle2");
+  sliderModel.setTitle("sliderTitle2".tr);
   sliderModel.setImageAssetPath("assets/images/slider2.png");
-  sliderModel.setButtonTitle('sliderButton2');
+  sliderModel.setButtonTitle('sliderButton2'.tr);
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
@@ -66,9 +68,9 @@ List<SliderModel> getSlides() {
   //3
   sliderModel.setDesc(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra sollicitudin commodo. ");
-  sliderModel.setTitle("sliderTitle3");
+  sliderModel.setTitle("sliderTitle3".tr);
   sliderModel.setImageAssetPath("assets/images/slider3.png");
-  sliderModel.setButtonTitle('sliderButton3');
+  sliderModel.setButtonTitle('sliderButton3'.tr);
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
@@ -76,9 +78,9 @@ List<SliderModel> getSlides() {
   //4
   sliderModel.setDesc(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra sollicitudin commodo. ");
-  sliderModel.setTitle("sliderTitle4");
+  sliderModel.setTitle("sliderTitle4".tr);
   sliderModel.setImageAssetPath("assets/images/slider4.png");
-  sliderModel.setButtonTitle("sliderButton4");
+  sliderModel.setButtonTitle("sliderButton4".tr);
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();

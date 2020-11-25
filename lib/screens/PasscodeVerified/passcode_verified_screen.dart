@@ -37,7 +37,7 @@ class _PasscodeVerifiedScreenState extends State<PasscodeVerifiedScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: VerifiedScreenWidget(
-        desc: 'passcodeVerifedDesc',
+        desc: 'passcodeVerifedDesc'.tr,
       ),
     );
   }

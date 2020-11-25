@@ -36,12 +36,12 @@ class OtpScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Verify your number',
+                        'verifyNumberTitle'.tr,
                         textAlign: TextAlign.center,
                         style: cHeadStyle,
                       ),
                       Text(
-                        'Enter a 6 digit number sent to \n $mobileNumber',
+                        'Enter a 6 digit number sent to'.tr + '\n$mobileNumber',
                         textAlign: TextAlign.center,
                         style: cTextStyle,
                       )
@@ -55,7 +55,7 @@ class OtpScreen extends StatelessWidget {
                       print("Resend OTP");
                     },
                     child: Text(
-                      'Re Send Code',
+                      'verifyResendCode'.tr,
                       style: TextStyle(
                         color: cPrimaryColor,
                         fontSize: 16,
@@ -72,7 +72,7 @@ class OtpScreen extends StatelessWidget {
                     },
                     validator: (value) {
                       if (value.isEmpty || value.length != 6) {
-                        return 'Please Enter Valid OTP';
+                        return 'otpInvalid'.tr;
                       }
                       return null;
                     },
@@ -103,7 +103,7 @@ class OtpScreen extends StatelessWidget {
                   ),
                 ),
                 ButtonWidget(
-                  buttonText: 'otpVerifyButton',
+                  buttonText: 'otpVerifyButton'.tr,
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
                       controller.verifyOtp(verificationId, otp);

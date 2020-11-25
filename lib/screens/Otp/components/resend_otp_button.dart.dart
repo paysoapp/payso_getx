@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/utils.dart';
 import '../../../constants.dart';
 
 class ResendOtpButton extends StatelessWidget {
@@ -13,10 +13,10 @@ class ResendOtpButton extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: FlatButton(
         onPressed: () {
-          print("Resend OTP");
+          print("verifyResendCode".tr);
         },
         child: Text(
-          'Re Send Code',
+          "verifyResendCode".tr,
           style: TextStyle(
             color: cPrimaryColor,
             fontSize: 16,

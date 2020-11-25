@@ -4,6 +4,12 @@ const Map<String, String> filPH = {
   "saveLang": "Magtipid",
   "permissionTitle": "Magbigay ng Mga Pahintulot",
   "permissionButton": "Payagan",
+  "permissionText1":
+      "Magbigay ng Access sa Pag-contact upang suriin kung sino ang gumagamit ng Payso",
+  "permissionText2":
+      "Pag-access sa Camera upang i-scan ang mga QR code ng Camera",
+  "permissionText3":
+      "Magbigay ng Access sa Lokasyon makakuha ng mga pahintulot",
   "sliderTitle1": "QR at Mga Instant na Pagbabayad",
   "sliderTitle2": "Mga Bayad sa Bill",
   "sliderTitle3": "Seguridad",

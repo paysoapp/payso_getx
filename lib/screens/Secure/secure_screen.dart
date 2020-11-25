@@ -67,7 +67,7 @@ class SecureScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'Secure your Payso',
+                    'secureTitle'.tr,
                     style: cHeadStyle,
                   ),
                   Text(
@@ -103,7 +103,7 @@ class SecureScreen extends StatelessWidget {
                 width: Get.width - 80,
                 alignment: Alignment.center,
                 child: Text(
-                  "Check with Biometrics",
+                  "SecureButton".tr,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w600),
                 ),

@@ -29,7 +29,7 @@ class _MobileVerifiedScreenState extends State<MobileVerifiedScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: VerifiedScreenWidget(
-        desc: 'mobileVerifiedDesc',
+        desc: 'mobileVerifiedDesc'.tr,
       ),
     );
   }
