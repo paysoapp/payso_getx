@@ -4,9 +4,8 @@ import 'package:get/get.dart';
 import '../constants.dart';
 
 class BackButtonWidget extends StatelessWidget {
-  const BackButtonWidget({
-    Key key,
-  }) : super(key: key);
+  final Function onTap;
+  BackButtonWidget({@required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +14,7 @@ class BackButtonWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FlatButton(
-            onPressed: () {
-              Get.back();
-            },
+            onPressed: onTap,
             child: Row(
               children: [
                 Icon(

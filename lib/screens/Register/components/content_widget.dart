@@ -13,7 +13,7 @@ class ContentWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            "registerationTitle".tr,
+            "registrationTitle".tr,
             style: cHeadStyle,
           ),
           Spacer(),

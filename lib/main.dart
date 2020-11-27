@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/services/localization_service.dart';
 
 import 'screens/Splash/splash_screen.dart';
@@ -14,11 +15,16 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  RoutesController _routesController = Get.put(RoutesController());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      locale: LocalizationService.locale,
-      fallbackLocale: LocalizationService.fallbackLocale,
+      locale: _routesController.getLanguage() == 'English'
+          ? LocalizationService.engLocale
+          : LocalizationService.filLocale,
+      fallbackLocale: _routesController.getLanguage() == 'English'
+          ? LocalizationService.engLocale
+          : LocalizationService.filLocale,
       translations: LocalizationService(),
       debugShowCheckedModeBanner: false,
       title: 'PaySo App',

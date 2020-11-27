@@ -7,6 +7,16 @@ class RoutesController extends GetxController {
     box.writeIfNull('passcode', passcode);
   }
 
+  setLanguage(String lang) {
+    var box = GetStorage();
+    box.write('Lang', lang);
+  }
+
+  getLanguage() {
+    var box = GetStorage();
+    return box.read('Lang') ?? 'English';
+  }
+
   hasSeen(String page) {
     var box = GetStorage();
     box.writeIfNull(page, true);

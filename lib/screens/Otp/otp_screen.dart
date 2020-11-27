@@ -4,6 +4,7 @@ import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/constants.dart';
 import 'package:payso/controllers/otp_controller.dart';
+import 'package:payso/screens/Register/register_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -25,7 +26,9 @@ class OtpScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                BackButtonWidget(),
+                BackButtonWidget(
+                  onTap: () => Get.to(RegisterScreen()),
+                ),
                 Container(
                   child: Image.asset(
                     'assets/images/verify_number.png',
