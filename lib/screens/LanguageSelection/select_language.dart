@@ -13,6 +13,7 @@ class SelectLanguage extends StatefulWidget {
 
 class _SelectLanguageState extends State<SelectLanguage> {
   String _selectLang = LocalizationService.langs.first;
+  String _language = '';
   RoutesController _routesController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -96,7 +97,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     child: InkWell(
                       onTap: () async {
                         _routesController.hasSeen('Language');
-                        // await _prefs.setLanguage(selectedLang);
+                        _routesController.setLanguage(_selectLang);
                         Get.to(PermissionScreen());
                       },
                       child: Container(

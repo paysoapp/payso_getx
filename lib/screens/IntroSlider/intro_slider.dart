@@ -45,7 +45,7 @@ class _IntroSliderState extends State<IntroSlider> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height - 180,
+            height: Get.height - 180,
             child: PageView(
               controller: controller,
               onPageChanged: (index) {

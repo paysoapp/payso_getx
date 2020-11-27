@@ -27,16 +27,15 @@ class PasscodeScreen extends StatelessWidget {
                   children: [
                     ImageWidget(),
                     PasscodeContentWidget(
-                      titleText: 'Set Mobile Passcode',
-                      contentText:
-                          'Enter a 4 digit passcode to secure your account',
+                      titleText: "setPasscodeTitle".tr,
+                      contentText: "setPasscodeBody".tr,
                     ),
                     PasscodeDigitWidget(),
                     PincodeWidget(
                       boxCount: 4,
                       validator: (value) {
                         if (value.isEmpty || value.length != 4) {
-                          return 'Please Enter Valid passcode';
+                          return "incorrectSetPasscode".tr;
                         }
                         return null;
                       },
@@ -54,7 +53,7 @@ class PasscodeScreen extends StatelessWidget {
                   ],
                 ),
                 ButtonWidget(
-                  buttonText: 'setPasscodeButton',
+                  buttonText: 'setPasscodeButton'.tr,
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
                       Get.offAll(ConfirmPasscodeScreen());

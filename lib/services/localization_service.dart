@@ -7,6 +7,8 @@ import 'fil_ph.dart';
 class LocalizationService extends Translations {
   //default locale
   static final locale = Locale('en', 'US');
+  static final engLocale = Locale('en', 'US');
+  static final filLocale = Locale('fil', 'PH');
 
   //fallbacksLocale saves the day when the locale gets in trouble
   static final fallbackLocale = Locale('en', 'US');
