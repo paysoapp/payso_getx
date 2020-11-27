@@ -9,7 +9,7 @@ class RoutesController extends GetxController {
 
   setLanguage(String lang) {
     var box = GetStorage();
-    box.write('language', lang);
+    box.write('Lang', lang);
   }
 
   getLanguage() {

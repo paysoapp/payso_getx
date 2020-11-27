@@ -16,7 +16,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   RoutesController _routesController = Get.put(RoutesController());
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

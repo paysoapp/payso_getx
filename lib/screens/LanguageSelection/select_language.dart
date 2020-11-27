@@ -80,12 +80,15 @@ class _SelectLanguageState extends State<SelectLanguage> {
                         items: LocalizationService.langs.map((String lang) {
                           return DropdownMenuItem(
                             value: lang,
-                            child: Text(lang),
+                            child: Text(
+                              lang,
+                            ),
                           );
                         }).toList(),
                         onChanged: (String value) {
                           setState(() {
                             _selectLang = value;
+                            _routesController.setLanguage(_selectLang);
                             LocalizationService().changeLocale(value);
                           });
                         },
@@ -97,7 +100,6 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     child: InkWell(
                       onTap: () async {
                         _routesController.hasSeen('Language');
-                        _routesController.setLanguage(_selectLang);
                         Get.to(PermissionScreen());
                       },
                       child: Container(
