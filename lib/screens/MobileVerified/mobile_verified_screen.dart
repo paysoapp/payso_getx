@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/components/verrified_screen_widget.dart';
 import 'package:payso/controllers/routes_controller.dart';
-import 'package:payso/screens/Passcode/passcode_screen.dart';
+
+import '../CompleteProfile/complete_profile.dart';
 
 class MobileVerifiedScreen extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _MobileVerifiedScreenState extends State<MobileVerifiedScreen> {
       Duration(seconds: 2),
       () {
         routesController.hasSeen('MobileVerification');
-        Get.off(PasscodeScreen());
+        Get.off(CompleteProfile());
       },
     );
   }
