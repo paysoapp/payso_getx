@@ -37,9 +37,8 @@ class InputTextFieldWidget extends StatelessWidget {
         controller: controller,
         validator: validator,
         onFieldSubmitted: onFieldSubmitted,
-        maxLength: 10,
         style: cFormFieldStyle,
-        keyboardType: TextInputType.number,
+        keyboardType: textFieldType,
         decoration: InputDecoration(
           hintText: hintText,
           border: OutlineInputBorder(
