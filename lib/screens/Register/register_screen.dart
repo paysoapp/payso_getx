@@ -4,6 +4,7 @@ import 'package:payso/components/button_widget.dart';
 import 'package:get/get.dart';
 import 'package:payso/components/input_textfield_widget.dart';
 import 'package:payso/controllers/auth_controller.dart';
+import 'package:payso/controllers/routes_controller.dart';
 import 'package:payso/screens/LanguageSelection/select_language.dart';
 
 import 'components/content_widget.dart';
@@ -15,6 +16,7 @@ class RegisterScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   String phoneEmpty = ('phoneEmpty');
   AuthController _authController = Get.put(AuthController());
+  RoutesController routesController = Get.put(RoutesController());
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +78,7 @@ class RegisterScreen extends StatelessWidget {
                     if (_formKey.currentState.validate()) {
                       _authController.registerUser(
                           phoneController.text, context);
+                      routesController.setMobile(phoneNumber);
                     }
                   },
                 ),
