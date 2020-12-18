@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/Screens/Secure/components/button_widget.dart';
+import 'package:payso/components/input_textfield_widget.dart';
+import 'package:payso/controllers/auth_controller.dart';
+import 'package:payso/controllers/profile_controller.dart';
+import 'package:payso/controllers/routes_controller.dart';
+import 'package:payso/models/user_model.dart';
 import '../../constants.dart';
 import 'components/text_fields.dart';
 
 class CompleteProfile extends StatelessWidget {
+  final ProfileController profileController = Get.put(ProfileController());
+  final AuthController authController = Get.put(AuthController());
+  final RoutesController routesController = Get.put(RoutesController());
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController referralController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -36,11 +47,25 @@ class CompleteProfile extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: TextFields(),
+                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  child: TextFields(
+                      nameController: nameController,
+                      emailController: emailController,
+                      referralController: referralController),
                 ),
                 ButtonWidget(
                   buttonText: 'completeProfileNext'.tr,
+                  onTapped: () {
+                    profileController.setProfile(
+                      UserModel(
+                        userEmail: emailController.text,
+                        userId: authController.auth.currentUser.uid,
+                        userMobile: routesController.getMobile(),
+                        userName: nameController.text,
+                        userReferral: referralController.text,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
