@@ -31,4 +31,14 @@ class RoutesController extends GetxController {
     var box = GetStorage();
     box.erase();
   }
+
+  setMobile(String mobile) {
+    var box = GetStorage();
+    box.writeIfNull('userMobile', mobile);
+  }
+
+  getMobile() {
+    var box = GetStorage();
+    return box.read('userMobile');
+  }
 }
