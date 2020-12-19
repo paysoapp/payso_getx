@@ -9,6 +9,11 @@ const cHeadStyle = TextStyle(
   fontSize: 24,
 );
 
+const cHomeHeadStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 22.0,
+);
+
 const cTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 16,

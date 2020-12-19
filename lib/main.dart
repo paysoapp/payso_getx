@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/controllers/bindings/auth_binding.dart';
 import 'package:payso/screens/Register/register_screen.dart';
+import 'screens/Dashboard/dashboard_screen.dart';
 import 'screens/Splash/splash_screen.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialBinding: AuthBinding(),
       debugShowCheckedModeBanner: false,
       title: 'PaySo App',
-      home: RegisterScreen(),
+      home: DashboardScreen(),
     );
   }
 }
