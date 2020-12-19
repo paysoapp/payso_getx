@@ -15,7 +15,7 @@ const cSmallTextStyle = TextStyle(
 
 const cHomeHeadStyle = TextStyle(
   fontWeight: FontWeight.w500,
-  fontSize: 22.0,
+  fontSize: 17.0,
 );
 
 const cTextStyle = TextStyle(
