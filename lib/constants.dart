@@ -8,6 +8,10 @@ const cHeadStyle = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 24,
 );
+const cSmallTextStyle = TextStyle(
+  fontSize: 14.0,
+  color: Colors.white,
+);
 
 const cHomeHeadStyle = TextStyle(
   fontWeight: FontWeight.w500,

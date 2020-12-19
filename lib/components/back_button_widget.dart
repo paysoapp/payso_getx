@@ -5,7 +5,8 @@ import '../constants.dart';
 
 class BackButtonWidget extends StatelessWidget {
   final Function onTap;
-  BackButtonWidget({@required this.onTap});
+  final Color textColor;
+  BackButtonWidget({@required this.onTap, this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,12 @@ class BackButtonWidget extends StatelessWidget {
               children: [
                 Icon(
                   Icons.arrow_back,
-                  color: cPrimaryColor,
+                  color: textColor == null ? cPrimaryColor : textColor,
                 ),
                 Text(
                   'backButton'.tr,
                   style: TextStyle(
-                    color: cPrimaryColor,
+                    color: textColor == null ? cPrimaryColor : textColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
