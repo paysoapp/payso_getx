@@ -10,8 +10,10 @@ import 'package:payso/screens/LanguageSelection/select_language.dart';
 import 'components/content_widget.dart';
 
 // ignore: must_be_immutable
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends GetWidget<AuthController> {
+  final _phoneController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
   String phoneEmpty = ('phoneEmpty');
