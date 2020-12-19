@@ -11,7 +11,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.menu),
+        leading: Icon(Icons.sort),
         title: Text("Hi, User"),
         actions: <Widget>[
           IconButton(
@@ -31,15 +31,16 @@ class DashboardScreen extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
+              padding: EdgeInsets.symmetric(vertical: 20),
               color: cPrimaryColor,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Complete your payso profile",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 22.0)),
+                          fontSize: 16.0)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -56,9 +57,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Mobile",
-                            style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Mobile",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -75,9 +79,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Email",
-                            style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Email",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -93,9 +100,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "KYC",
-                            style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "KYC",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -111,9 +121,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Bank",
-                            style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Bank",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -121,7 +134,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              height: Get.height * 0.15,
+              height: Get.height * 0.17,
             ),
             Container(
               child: Text("A d v e r t i s e m e n t"),
@@ -133,9 +146,11 @@ class DashboardScreen extends StatelessWidget {
             ),
             Container(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       "Your Payso",
                       textAlign: TextAlign.start,
@@ -159,9 +174,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Add Money",
-                            // style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Add Money",
+                              // style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -178,9 +196,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Wallet",
-                            // style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Wallet",
+                              // style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -197,9 +218,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Pay",
-                            // style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Pay",
+                              // style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -216,9 +240,12 @@ class DashboardScreen extends StatelessWidget {
                               size: 30.0,
                             ),
                           ),
-                          Text(
-                            "Withdraw",
-                            // style: TextStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              "Withdraw",
+                              // style: TextStyle(color: Colors.white),
+                            ),
                           )
                         ],
                       ),
@@ -230,10 +257,14 @@ class DashboardScreen extends StatelessWidget {
             ),
             Container(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Recharge and pay bills",
-                    style: cHomeHeadStyle,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      "Recharge and pay bills",
+                      style: cHomeHeadStyle,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -379,6 +410,58 @@ class DashboardScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0.0,
+        fixedColor: Colors.black,
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: cPrimaryColor,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.lock,
+              color: cPrimaryColor,
+            ),
+            label: 'Store',
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: cPrimaryColor,
+              ),
+              child: Icon(
+                Icons.qr_code_scanner,
+                color: Colors.white,
+                size: 40,
+              ),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_balance_wallet,
+              color: cPrimaryColor,
+            ),
+            label: 'Wallet',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.format_list_bulleted,
+              color: cPrimaryColor,
+            ),
+            label: 'History',
+          ),
+        ],
       ),
     );
   }
