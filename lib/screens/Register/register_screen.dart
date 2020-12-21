@@ -43,7 +43,7 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ContentWidget(),
                 InputTextFieldWidget(
                   controller: phoneController,
-                  onFieldSubmitted: (value) async{
+                  onFieldSubmitted: (value) async {
                     if (_formKey.currentState.validate()) {
                       await routesController.setMobile(phoneController.text);
                       _authController.registerUser(
@@ -78,7 +78,7 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ),
                 ButtonWidget(
                   buttonText: 'otpButton'.tr,
-                  onTapped: () async{
+                  onTapped: () async {
                     if (_formKey.currentState.validate()) {
                       await routesController.setMobile(phoneController.text);
                       _authController.registerUser(
