@@ -9,7 +9,7 @@ import '../../constants.dart';
 import 'components/text_fields.dart';
 
 class CompleteProfile extends StatelessWidget {
-  final ProfileController profileController = Get.find();
+  final ProfileController profileController = Get.put(ProfileController());
   final AuthController authController = Get.put(AuthController());
   final RoutesController routesController = Get.put(RoutesController());
   TextEditingController nameController = TextEditingController();
