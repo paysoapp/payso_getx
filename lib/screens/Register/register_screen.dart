@@ -7,8 +7,6 @@ import 'package:get/get.dart';
 import 'package:payso/components/input_textfield_widget.dart';
 import 'package:payso/controllers/auth_controller.dart';
 import 'package:payso/controllers/routes_controller.dart';
-import 'package:payso/screens/LanguageSelection/select_language.dart';
-
 import 'components/content_widget.dart';
 
 // ignore: must_be_immutable
@@ -45,8 +43,9 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ContentWidget(),
                 InputTextFieldWidget(
                   controller: phoneController,
-                  onFieldSubmitted: (value) {
+                  onFieldSubmitted: (value) async{
                     if (_formKey.currentState.validate()) {
+                      await routesController.setMobile(phoneController.text);
                       _authController.registerUser(
                           phoneController.text, context);
                     }
@@ -58,6 +57,7 @@ class RegisterScreen extends GetWidget<AuthController> {
                     return null;
                   },
                   hintText: 'phoneHint'.tr,
+                  textFieldType: TextInputType.number,
                   prefix: Container(
                     width: Get.width / 3.8,
                     child: Row(
@@ -78,11 +78,11 @@ class RegisterScreen extends GetWidget<AuthController> {
                 ),
                 ButtonWidget(
                   buttonText: 'otpButton'.tr,
-                  onTapped: () {
+                  onTapped: () async{
                     if (_formKey.currentState.validate()) {
+                      await routesController.setMobile(phoneController.text);
                       _authController.registerUser(
                           phoneController.text, context);
-                      routesController.setMobile(phoneNumber);
                     }
                   },
                 ),

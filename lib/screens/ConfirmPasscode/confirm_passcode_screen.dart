@@ -3,13 +3,17 @@ import 'package:get/get.dart';
 import 'package:payso/components/button_widget.dart';
 import 'package:payso/components/passcode_content_widget.dart';
 import 'package:payso/components/pincode_widget.dart';
+import 'package:payso/controllers/auth_controller.dart';
 import 'package:payso/controllers/passcode_controller.dart';
+import 'package:payso/controllers/profile_controller.dart';
 import '../../components/passcode_digit_widget.dart';
 import 'package:payso/screens/PasscodeVerified/passcode_verified_screen.dart';
 
 class ConfirmPasscodeScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   PasscodeController passcodeController = Get.put(PasscodeController());
+  ProfileController _profileController = Get.put(ProfileController());
+  AuthController _authController = Get.find();
   int confirmPasscode = 0;
   @override
   Widget build(BuildContext context) {
@@ -51,6 +55,10 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                         confirmPasscode = int.parse(val);
                         if (_formKey.currentState.validate()) {
                           passcodeController.setConfirmPasscode(int.parse(val));
+                          _profileController.updatePasscode(
+                            passcodeController.secondScreenPasscode.string,
+                            _authController.auth.currentUser.uid,
+                          );
                           Get.off(PasscodeVerifiedScreen());
                         }
                       },
@@ -64,6 +72,8 @@ class ConfirmPasscodeScreen extends StatelessWidget {
                       if (passcodeController.matchPasscode(
                           passcodeController.firstScreenPasscode.value,
                           passcodeController.secondScreenPasscode.value)) {
+                        _profileController.updatePasscode(
+                            passcodeController.secondScreenPasscode.string, _authController.auth.currentUser.uid,);
                         Get.off(PasscodeVerifiedScreen());
                       }
                     }
