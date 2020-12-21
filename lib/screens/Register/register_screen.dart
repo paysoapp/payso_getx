@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:payso/components/back_button_widget.dart';
 import 'package:payso/components/button_widget.dart';
+import 'package:payso/components/input_number_widget.dart';
+
 import 'package:get/get.dart';
 import 'package:payso/components/input_textfield_widget.dart';
 import 'package:payso/controllers/auth_controller.dart';
@@ -10,8 +12,10 @@ import 'package:payso/screens/LanguageSelection/select_language.dart';
 import 'components/content_widget.dart';
 
 // ignore: must_be_immutable
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends GetWidget<AuthController> {
+  final _phoneController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
   String phoneNumber = '';
   final _formKey = GlobalKey<FormState>();
   String phoneEmpty = ('phoneEmpty');

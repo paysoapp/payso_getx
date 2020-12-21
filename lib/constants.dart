@@ -13,6 +13,11 @@ const cSmallTextStyle = TextStyle(
   color: Colors.white,
 );
 
+const cHomeHeadStyle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 17.0,
+);
+
 const cTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 16,
