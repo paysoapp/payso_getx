@@ -22,6 +22,14 @@ class TextFields extends StatelessWidget {
       child: Column(
         children: [
           InputTextFieldWidget(
+            validator: (value) {
+              if (value == null) {
+                return "Please Enter your name";
+              }else if (value.length == 0) {
+                return "Please Enter your name";
+              }
+              return null;
+            },
             controller: nameController,
             textFieldIcon: Icon(
               Icons.person,
@@ -35,6 +43,13 @@ class TextFields extends StatelessWidget {
             height: 20.0,
           ),
           InputTextFieldWidget(
+            validator: (value) {
+              if (!RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                  .hasMatch(value)) {
+                return "Please Enter Valid Email";
+              }
+              return null;
+            },
             controller: emailController,
             textFieldIcon: Icon(
               Icons.email,

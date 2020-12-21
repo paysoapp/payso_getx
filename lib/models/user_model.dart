@@ -4,13 +4,15 @@ class UserModel {
   String userEmail;
   String userMobile;
   String userReferral;
+  String userPasscode;
 
   UserModel(
       {this.userId,
       this.userName,
       this.userEmail,
       this.userMobile,
-      this.userReferral});
+      this.userReferral,
+      this.userPasscode});
 
   getUserId() {
     return this.userId;
@@ -32,6 +34,10 @@ class UserModel {
     return this.userReferral;
   }
 
+  getUserPasscode() {
+    return this.userPasscode;
+  }
+
   setUserId(userId) {
     this.userId = userId;
   }
@@ -50,5 +56,9 @@ class UserModel {
 
   setUserReferral(userReferral) {
     this.userReferral = userReferral;
+  }
+
+  setUserPasscode(userPassocde) {
+    this.userPasscode = userPassocde;
   }
 }

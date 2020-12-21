@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:payso/controllers/routes_controller.dart';
-import 'package:payso/screens/Dashboard/dashboard_screen.dart';
-import 'package:payso/screens/MyProfile/my_profile_screen.dart';
 import 'package:payso/services/localization_service.dart';
 
 import 'screens/Splash/splash_screen.dart';
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
       translations: LocalizationService(),
       debugShowCheckedModeBanner: false,
       title: 'PaySo App',
-      home: DashboardScreen(),
+      home: SplashScreen(),
     );
   }
 }

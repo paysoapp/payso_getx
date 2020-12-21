@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/Screens/Secure/components/button_widget.dart';
-import 'package:payso/components/input_textfield_widget.dart';
 import 'package:payso/controllers/auth_controller.dart';
 import 'package:payso/controllers/profile_controller.dart';
 import 'package:payso/controllers/routes_controller.dart';
@@ -10,7 +9,7 @@ import '../../constants.dart';
 import 'components/text_fields.dart';
 
 class CompleteProfile extends StatelessWidget {
-  final ProfileController profileController = Get.put(ProfileController());
+  final ProfileController profileController = Get.find();
   final AuthController authController = Get.put(AuthController());
   final RoutesController routesController = Get.put(RoutesController());
   TextEditingController nameController = TextEditingController();
@@ -19,6 +18,7 @@ class CompleteProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    print(routesController.getMobile());
     return Scaffold(
       body: SingleChildScrollView(
         child: Form(
@@ -55,16 +55,18 @@ class CompleteProfile extends StatelessWidget {
                 ),
                 ButtonWidget(
                   buttonText: 'completeProfileNext'.tr,
-                  onTapped: () {
-                    profileController.setProfile(
-                      UserModel(
-                        userEmail: emailController.text,
-                        userId: authController.auth.currentUser.uid,
-                        userMobile: routesController.getMobile(),
-                        userName: nameController.text,
-                        userReferral: referralController.text,
-                      ),
-                    );
+                  onTapped: () async {
+                    if (_formKey.currentState.validate()) {
+                      profileController.setProfile(
+                        UserModel(
+                          userEmail: emailController.text,
+                          userId: authController.auth.currentUser.uid,
+                          userMobile: await routesController.getMobile(),
+                          userName: nameController.text,
+                          userReferral: referralController.text,
+                        ),
+                      );
+                    }
                   },
                 ),
               ],
