@@ -13,7 +13,7 @@ class ConfirmPasscodeScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   PasscodeController passcodeController = Get.put(PasscodeController());
   ProfileController _profileController = Get.put(ProfileController());
-  AuthController _authController = Get.find();
+  AuthController _authController = Get.put(AuthController());
   int confirmPasscode = 0;
   @override
   Widget build(BuildContext context) {

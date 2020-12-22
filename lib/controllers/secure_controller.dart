@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:payso/controllers/routes_controller.dart';
-import 'package:payso/screens/Dashboard/dashboard_screen.dart';
+import 'package:payso/components/bottom_bar.dart';
 
 class SecureController extends GetxController {
   @override
@@ -11,7 +11,7 @@ class SecureController extends GetxController {
 
   navigateToNext() {
     routeController.hasSeen('isAuthenticated');
-    Get.offAll(DashboardScreen());
+    Get.offAll(MyBottomBar());
   }
 
   Future<bool> canCheckBiometrics() async {
