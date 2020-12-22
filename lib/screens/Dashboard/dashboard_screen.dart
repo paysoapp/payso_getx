@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:payso/constants.dart';
 import 'package:get/get.dart';
 import 'package:payso/controllers/routes_controller.dart';
+import 'package:payso/screens/MyProfile/my_profile_screen.dart';
 
 import '../../constants.dart';
 
 class DashboardScreen extends StatelessWidget {
+int index=0;
   RoutesController routesController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -414,6 +416,14 @@ class DashboardScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0.0,
         fixedColor: Colors.black,
+        currentIndex: index,
+        onTap: (int index){
+          index=this.index;
+          if(index==0)
+            {
+              Get.to(MyProfileScreen());
+            }
+        },
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 14,
         unselectedFontSize: 14,
@@ -424,6 +434,7 @@ class DashboardScreen extends StatelessWidget {
               color: cPrimaryColor,
             ),
             label: 'Home',
+
           ),
           BottomNavigationBarItem(
             icon: Icon(

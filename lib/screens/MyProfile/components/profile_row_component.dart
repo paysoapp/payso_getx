@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payso/constants.dart';
@@ -40,9 +41,12 @@ class ProfileRowComponent extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    content,
-                    style: cSmallTextStyle.copyWith(color: Colors.grey),
+                  Container(
+                    width: Get.width / 1.3,
+                    child: Text(
+                      content,
+                      style: cSmallTextStyle.copyWith(color: Colors.grey),
+                    ),
                   ),
                 ],
               ),

@@ -17,36 +17,40 @@ class MyProfileScreen extends StatelessWidget {
         child: Container(
           width: Get.width,
           height: Get.height,
-          child: Column(
-            children: [
-              Header(),
-              ProfileRow(),
-              ProfileRowComponent(
-                icon: Icons.payment,
-                title: 'Payment',
-                content: 'Save Card, Account, Wallet, Limits & Others',
-              ),
-              ProfileRowComponent(
-                icon: Icons.account_balance_wallet,
-                title: 'Payso Wallet',
-                content: '9454654846',
-              ),
-              ProfileRowComponent(
-                icon: Icons.notifications,
-                title: 'Notifications',
-                content: 'lorem ipsum dummy text',
-              ),
-              ProfileRowComponent(
-                icon: Icons.outlet_rounded,
-                title: 'My Order',
-                content: 'Make a type specimen book. It has survived not only',
-              ),
-              ProfileRowComponent(
-                icon: Icons.help,
-                title: 'Help & Support',
-                content: 'Make a type specimen book. It has survived not only',
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Header(),
+                ProfileRow(),
+                ProfileRowComponent(
+                  icon: Icons.payment,
+                  title: 'Payment',
+                  content: 'Save Card, Account, Wallet, Limits & Others',
+                ),
+                ProfileRowComponent(
+                  icon: Icons.account_balance_wallet,
+                  title: 'Payso Wallet',
+                  content: '9454654846',
+                ),
+                ProfileRowComponent(
+                  icon: Icons.notifications,
+                  title: 'Notifications',
+                  content: 'lorem ipsum dummy text',
+                ),
+                ProfileRowComponent(
+                  icon: Icons.outlet_rounded,
+                  title: 'My Order',
+                  content:
+                      'Make a type specimen book. It has survived not only',
+                ),
+                ProfileRowComponent(
+                  icon: Icons.help,
+                  title: 'Help & Support',
+                  content:
+                      'Make a type specimen book. It has survived not only',
+                ),
+              ],
+            ),
           ),
         ),
       ),
