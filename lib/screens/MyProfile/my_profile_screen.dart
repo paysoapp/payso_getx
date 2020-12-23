@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payso/constants.dart';
 import 'package:payso/controllers/routes_controller.dart';
 
 import 'package:payso/screens/MyProfile/components/header.dart';

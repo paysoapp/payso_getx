@@ -6,6 +6,7 @@ import 'package:payso/screens/Dashboard/components/advertisement_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_one_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_three_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_two_widget.dart';
+import 'package:payso/screens/MyProfile/my_profile_screen.dart';
 import '../../constants.dart';
 
 // ignore: must_be_immutable
@@ -32,7 +33,7 @@ class DashboardScreen extends StatelessWidget {
               color: Colors.white,
             ),
             tooltip: 'settings icon',
-            onPressed: null,
+            onPressed: () => Get.to(MyProfileScreen()),
           ),
         ],
         backgroundColor: cPrimaryColor,

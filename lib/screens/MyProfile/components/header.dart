@@ -23,7 +23,7 @@ class Header extends StatelessWidget {
         children: [
           BackButtonWidget(
             textColor: Colors.white,
-            onTap: () => Get.to(DashboardScreen()),
+            onTap: () => Get.offAll(DashboardScreen()),
           ),
           InkWell(
             child: Text(
