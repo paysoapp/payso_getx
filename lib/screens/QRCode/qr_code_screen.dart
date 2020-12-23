@@ -1,12 +1,75 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:ui' as ui;
 
-class QRCodeScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+class QRCodeScreen extends StatefulWidget {
+  @override
+  _QRCodeScreenState createState() => _QRCodeScreenState();
+}
+
+class _QRCodeScreenState extends State<QRCodeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('QR COde Screen'),
+    final message = "15645451231545456151ffjdgf";
+    // ignore: lines_longer_than_80_chars
+    // 'Hey this is a QR code. Change this value in the main_screen.dart file.';
+
+    final qrFutureBuilder = FutureBuilder(
+      future: _loadOverlayImage(),
+      builder: (ctx, snapshot) {
+        final size = 280.0;
+        if (!snapshot.hasData) {
+          return Container(width: size, height: size);
+        }
+        return CustomPaint(
+          size: Size.square(size),
+          painter: QrPainter(
+            data: message,
+            version: QrVersions.auto,
+            embeddedImage: snapshot.data,
+            embeddedImageStyle: QrEmbeddedImageStyle(
+              size: Size(80, 40),
+            ),
+          ),
+        );
+      },
+    );
+
+    return Material(
+      color: Colors.white,
+      child: SafeArea(
+        top: true,
+        bottom: true,
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Center(
+                  child: Container(
+                    width: 280,
+                    child: qrFutureBuilder,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40)
+                    .copyWith(bottom: 40),
+                child: Text(message),
+              ),
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  Future<ui.Image> _loadOverlayImage() async {
+    final completer = Completer<ui.Image>();
+    final byteData = await rootBundle.load('assets/images/app_logo.png');
+    ui.decodeImageFromList(byteData.buffer.asUint8List(), completer.complete);
+    return completer.future;
   }
 }
