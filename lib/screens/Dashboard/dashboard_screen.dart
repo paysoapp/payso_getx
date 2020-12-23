@@ -7,10 +7,10 @@ import 'package:payso/screens/Dashboard/components/section_one_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_three_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_two_widget.dart';
 import 'package:payso/screens/MyProfile/my_profile_screen.dart';
-import '../../constants.dart';
 
 // ignore: must_be_immutable
 class DashboardScreen extends StatelessWidget {
+  int index = 0;
   RoutesController routesController = Get.find();
   @override
   Widget build(BuildContext context) {

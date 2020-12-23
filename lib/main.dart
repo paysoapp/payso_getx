@@ -12,9 +12,7 @@ import 'screens/Splash/splash_screen.dart';
 void main() async {
   // This statement wil change the Color of Statusbar
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: cPrimaryColor,
-    ),
+    SystemUiOverlayStyle(statusBarColor: cPrimaryColor),
   );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
