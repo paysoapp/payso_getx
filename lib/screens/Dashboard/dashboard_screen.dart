@@ -32,9 +32,7 @@ class DashboardScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.person, color: Colors.white),
             tooltip: 'settings icon',
-            onPressed: () {
-              Get.to(MyProfileScreen());
-            },
+            onPressed: () => Get.to(MyProfileScreen()),
           ),
         ],
         backgroundColor: cPrimaryColor,

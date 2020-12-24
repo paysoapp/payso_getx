@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:payso/screens/Register/register_screen.dart';
 
 class RoutesController extends GetxController {
   setPasscode(int passcode) {
@@ -30,6 +31,7 @@ class RoutesController extends GetxController {
   logout() {
     var box = GetStorage();
     box.erase();
+    Get.offAll(RegisterScreen());
   }
 
   setMobile(String mobile) {

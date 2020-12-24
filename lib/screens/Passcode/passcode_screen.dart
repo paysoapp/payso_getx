@@ -56,6 +56,7 @@ class PasscodeScreen extends StatelessWidget {
                   buttonText: 'setPasscodeButton'.tr,
                   onTapped: () {
                     if (_formKey.currentState.validate()) {
+                      passcodeController.setPasscode(passcode);
                       Get.offAll(ConfirmPasscodeScreen());
                     }
                   },
