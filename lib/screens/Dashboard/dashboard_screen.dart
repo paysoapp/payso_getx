@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:payso/constants.dart';
 import 'package:get/get.dart';
 import 'package:payso/controllers/routes_controller.dart';
-<<<<<<< HEAD
 import 'package:payso/screens/MyProfile/my_profile_screen.dart';
-
-=======
 import 'package:payso/screens/Dashboard/components/advertisement_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_one_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_three_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_two_widget.dart';
->>>>>>> 80fdc89bf14ed57f0676ea3cfdc86f6b56801208
+
 import '../../constants.dart';
 
 // ignore: must_be_immutable
@@ -47,7 +44,7 @@ int index=0;
           ],
         ),
       ),
-<<<<<<< HEAD
+
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0.0,
         fixedColor: Colors.black,
@@ -109,8 +106,7 @@ int index=0;
           ),
         ],
       ),
-=======
->>>>>>> 80fdc89bf14ed57f0676ea3cfdc86f6b56801208
+
     );
   }
 }
