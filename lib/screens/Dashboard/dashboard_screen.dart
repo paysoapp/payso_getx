@@ -22,16 +22,18 @@ class DashboardScreen extends StatelessWidget {
         title: Text("Hi, User"),
         actions: <Widget>[
           IconButton(
-              icon:
-                  Icon(Icons.notifications_none_outlined, color: Colors.white),
-              tooltip: 'notification icon',
-              onPressed: null),
+            icon: Icon(
+              Icons.notifications_none_outlined,
+              color: Colors.white,
+            ),
+            tooltip: 'notification icon',
+            onPressed: null,
+          ),
           IconButton(
-              icon: Icon(Icons.person, color: Colors.white),
-              tooltip: 'settings icon',
-              onPressed: () {
-                Get.to(MyProfileScreen());
-              }),
+            icon: Icon(Icons.person, color: Colors.white),
+            tooltip: 'settings icon',
+            onPressed: () => Get.to(MyProfileScreen()),
+          ),
         ],
         backgroundColor: cPrimaryColor,
         elevation: 30.0,
