@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:payso/constants.dart';
 import 'package:get/get.dart';
 import 'package:payso/controllers/routes_controller.dart';
+import 'package:payso/screens/MyProfile/my_profile_screen.dart';
 import 'package:payso/screens/Dashboard/components/advertisement_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_one_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_three_widget.dart';
 import 'package:payso/screens/Dashboard/components/section_two_widget.dart';
-import 'package:payso/screens/MyProfile/my_profile_screen.dart';
+
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class DashboardScreen extends StatelessWidget {
@@ -28,12 +30,11 @@ class DashboardScreen extends StatelessWidget {
             onPressed: null,
           ),
           IconButton(
-            icon: Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
+            icon: Icon(Icons.person, color: Colors.white),
             tooltip: 'settings icon',
-            onPressed: () => Get.to(MyProfileScreen()),
+            onPressed: () {
+              Get.to(MyProfileScreen());
+            },
           ),
         ],
         backgroundColor: cPrimaryColor,
