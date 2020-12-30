@@ -50,5 +50,8 @@
   "incorrectConfirmPasscode": "Passcode doesn't match, Please Check!!",
   "confirmPasscodeButton": "Set Passcode",
 
-  "passcodeVerifedDesc": "Your passcode has been set successfully"
+  "passcodeVerifedDesc": "Your passcode has been set successfully",
+  "skipButton": "Skip",
+  "verificationPending":"Verification Pending",
+  "verficationLinkText":"Verification link sent to"
 }
