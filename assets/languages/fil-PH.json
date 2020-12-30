@@ -50,5 +50,8 @@
   "incorrectConfirmPasscode": "Hindi tumutugma ang Passcode, Mangyaring Suriin !!",
   "confirmPasscodeButton": "Itakda ang Passcode",
 
-  "passcodeVerifedDesc": "Ang iyong passcode ay matagumpay na naitakda"
+  "passcodeVerifedDesc": "Ang iyong passcode ay matagumpay na naitakda",
+  "skipButton":"Laktawan",
+  "verificationPending":"Nakabinbin ang Pag-verify",
+  "verficationLinkText": "Ipinadala ang link sa pag-verify"
   }
